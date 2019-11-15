@@ -7,5 +7,11 @@ export default Factory.extend({
   },
   price() {
     return faker.commerce.price();
+  },
+  imageUrl() {
+    return faker.random.image();
+  },
+  description() {
+    return faker.lorem.sentence();
   }
 });
