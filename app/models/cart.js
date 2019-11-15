@@ -19,4 +19,4 @@ export default class Cart extends Model {
     });
     return displayProductsDictionary;
   }
-};
+}

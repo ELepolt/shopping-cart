@@ -11,18 +11,7 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          {{log this.application.cart.displayProductsDictionary}}
-
-          {{#each-in cart.displayProductsDictionary as |product price|}}
-            {{!-- <div>
-              <span>{{product.title}}</span>
-              <span>{{price}}</span>
-            </div> --}}
-            {{log product}}
-          {{/each-in}}
-        </li>
-        <li class="nav-item">
-          {{#link-to 'checkout' class="btn btn-primary"}}
+          {{#link-to "checkout" class="btn btn-primary"}}
             <FaIcon @icon="shopping-cart" /> <span class="badge badge-light">{{this.application.cart.products.length}}</span>              
           {{/link-to}}
         </li>

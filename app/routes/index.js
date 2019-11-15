@@ -4,4 +4,4 @@ export default class SomeRouteRoute extends Route {
   model() {
     return this.store.findAll('product');
   }
-};
+}

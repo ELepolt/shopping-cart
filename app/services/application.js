@@ -14,6 +14,6 @@ export default class ApplicationService extends Service {
       this.activeCart = this.store.createRecord('cart', { products: [] });
     }
     return this.activeCart;
-  };
+  }
   
-};
+}

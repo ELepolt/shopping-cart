@@ -12,15 +12,6 @@ module('Integration | Component | product', function(hooks) {
 
     await render(hbs`<Product />`);
 
-    assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      <Product>
-        template block text
-      </Product>
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.equal(this.element.textContent.trim(), 'Add To Cart');
   });
 });
