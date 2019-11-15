@@ -24,12 +24,6 @@ export default function() {
     https://www.ember-cli-mirage.com/docs/route-handlers/shorthands
   */
   this.get('/products', (schema, request) => {
-    return {
-      data: [
-        { id: 1, type: 'product', attributes: { name: 'Photo Album' } },
-        { id: 2, type: 'product', attributes: { name: 'Calendar' } },
-        { id: 3, type: 'product', attributes: { name: '8x11 Print' } },
-      ]
-    };
+    return schema.products.all();
   });
 }

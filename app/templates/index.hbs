@@ -8,7 +8,7 @@
 {{!-- Page Features --}}
 <div class="row text-center">
   {{#each this.model as |product|}}
-    <div class="col-lg-3 col-md-6 mb-4"><Product /></div>
+    <div class="col-lg-3 col-md-6 mb-4"><Product @product={{product}} /></div>
   {{/each}}
 </div>
 {{!-- /.row --}}
