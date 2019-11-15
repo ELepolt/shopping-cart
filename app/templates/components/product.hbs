@@ -6,7 +6,7 @@
   </div>
   <div class="card-footer">
     <span>{{@product.displayPrice}}</span>
-    <a href="#" class="btn btn-primary">Find Out More!</a>
+    <button class="btn btn-primary" {{on "click" (fn this.addToCart @product)}}>Add To Cart</button>
   </div>
 </div>
 
