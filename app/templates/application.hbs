@@ -2,16 +2,29 @@
 {{!-- Navigation --}}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container">
-    <a class="navbar-brand" href="#">Artifact Uprising</a>
+    {{#link-to "index" class="navbar-brand"}}
+      Artifact Uprising
+    {{/link-to}}
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <button type="button" class="btn btn-primary">
-            <FaIcon @icon="shopping-cart" /> <span class="badge badge-light">{{this.application.cart.products.length}}</span>
-          </button>
+          {{log this.application.cart.displayProductsDictionary}}
+
+          {{#each-in cart.displayProductsDictionary as |product price|}}
+            {{!-- <div>
+              <span>{{product.title}}</span>
+              <span>{{price}}</span>
+            </div> --}}
+            {{log product}}
+          {{/each-in}}
+        </li>
+        <li class="nav-item">
+          {{#link-to 'checkout' class="btn btn-primary"}}
+            <FaIcon @icon="shopping-cart" /> <span class="badge badge-light">{{this.application.cart.products.length}}</span>              
+          {{/link-to}}
         </li>
       </ul>
     </div>

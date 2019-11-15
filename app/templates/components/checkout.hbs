@@ -1,0 +1,16 @@
+{{log this.cart.cartIsEmpty}}
+<div class="row text-center">
+  {{#if this.cart.cartIsEmpty}}
+    <div>Cart is empty</div>
+  {{else}}
+    <div>
+      {{#each-in cart.displayProductsDictionary as |productTitle price|}}
+        <div>
+          <span>{{productTitle}}</span>
+          <span>{{price}}</span>
+        </div>
+      {{/each-in}}
+    </div>
+  {{/if}}
+</div>
+{{yield}}
