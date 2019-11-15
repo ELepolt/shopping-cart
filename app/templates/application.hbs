@@ -9,7 +9,9 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <FaIcon @icon="shopping-cart" />
+          <button type="button" class="btn btn-primary">
+            <FaIcon @icon="shopping-cart" /> <span class="badge badge-light">{{this.application.cart.products.length}}</span>
+          </button>
         </li>
       </ul>
     </div>

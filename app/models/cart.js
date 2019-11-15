@@ -1,6 +1,8 @@
 import DS from 'ember-data';
-const { Model, attr, hasMany } = DS;
+import { tracked } from '@glimmer/tracking';
+const { Model } = DS;
 
-export default class Card extends Model {
-  @hasMany('product') products;
+export default class Cart extends Model {
+  // Initialized as an empty array when the cart is created
+  @tracked products;
 };
