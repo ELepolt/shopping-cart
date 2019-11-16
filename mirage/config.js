@@ -26,4 +26,6 @@ export default function() {
   this.get('/products', (schema /*, request */) => {
     return schema.products.all();
   });
+  this.get('/products/:id');
+  this.get('/carts/:id');
 }
