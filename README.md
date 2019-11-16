@@ -17,6 +17,7 @@ A quick rundown of Ember's folder structure:
 * `controllers`: Not used very much in Ember 3+, but I needed the one for the navigation
 * `helpers`: These are usually for anything specific to your app, converting timezones, adding things together, etc
 * `services`: "A Service is an Ember object that lives for the duration of the application, and can be made available in different parts of your application." I use this to make sure the cart is always accessible
+* `tests`: Automated tests!
 
 ## Mirage
 
@@ -31,6 +32,8 @@ It also allows you to write integration tests against your components, which is 
 * `git clone https://github.com/ELepolt/shopping-cart` this repository
 * `cd shopping-cart`
 * `docker-compose up`
+* Visit [http://localhost:4200/](http://localhost:4200/)
+* Visit [http://localhost:4200/tests](http://localhost:4200/tests) if you want to see what Ember's testing page looks like
 
 If you just want to see it in action, head to [https://mysterious-harbor-33680.herokuapp.com/](https://mysterious-harbor-33680.herokuapp.com/)
 

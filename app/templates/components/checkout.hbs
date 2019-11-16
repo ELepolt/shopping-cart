@@ -3,13 +3,14 @@
     <div>Cart is empty</div>
   {{else}}
     <div>
-      {{#each-in cart.displayProductsDictionary as |productTitle price|}}
+      {{#each-in this.cart.displayProductsDictionary as |productTitle price|}}
         <div>
           <span>{{productTitle}}</span>
           <span>{{price}}</span>
         </div>
       {{/each-in}}
     </div>
+    <div class="total-price">{{this.cart.totalCartPrice}}</div>
   {{/if}}
 </div>
 {{yield}}

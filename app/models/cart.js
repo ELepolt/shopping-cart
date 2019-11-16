@@ -7,16 +7,30 @@ export default class Cart extends Model {
   @tracked products;
 
   get cartIsEmpty() {
-    return this.products.length === 0;
+    let cartIsEmpty = true;
+    if (this.products) {
+      cartIsEmpty = this.products.length === 0;
+    }
+    return cartIsEmpty;
   }
 
   get displayProductsDictionary() {
-    let uniqueProducts = this.products.uniq(),
-        displayProductsDictionary = {};
-    uniqueProducts.forEach(product => {
-      let productCount = this.products.filterBy('id', product.id).length;
-      displayProductsDictionary[product.title] = `$${productCount * product.price}`;
-    });
+    let displayProductsDictionary = {};
+    if (!this.cartIsEmpty) {
+      let uniqueProducts = this.products.uniq();
+      uniqueProducts.forEach(product => {
+        let productCount = this.products.filterBy('id', product.id).length;
+        displayProductsDictionary[product.title] = `$${productCount * product.price}`;
+      });
+    }
     return displayProductsDictionary;
+  }
+
+  get totalCartPrice() {
+    let totalCartPrice = 0;
+    if (!this.cartIsEmpty) {
+      totalCartPrice = this.products.map((x) => { return x.price }).reduce((a, b) => a + b);
+    }
+    return `$${totalCartPrice}`;
   }
 }
