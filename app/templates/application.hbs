@@ -22,5 +22,13 @@
 
 {{!-- Page Content --}}
 <div class="container">
+  {{!-- Jumbotron Header --}}
+  {{#if this.application.cart.cartIsEmpty}}
+    <header class="jumbotron my-4">
+      <h1 class="display-3">A Warm Welcome!</h1>
+      <p class="lead">It looks like your cart is empty! Add them from the {{#link-to "index"}}home page{{/link-to}}!</p>
+    </header>
+  {{/if}}
+
   {{outlet}}
 </div>
