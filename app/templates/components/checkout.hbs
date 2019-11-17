@@ -2,15 +2,28 @@
   {{#if this.cart.cartIsEmpty}}
     <div>Cart is empty</div>
   {{else}}
-    <div>
-      {{#each-in this.cart.displayProductsDictionary as |productTitle price|}}
-        <div>
-          <span>{{productTitle}}</span>
-          <span>{{price}}</span>
-        </div>
-      {{/each-in}}
-    </div>
-    <div class="total-price">{{this.cart.totalCartPrice}}</div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each-in this.cart.displayProductsDictionary as |productTitle productBreakdown|}}
+          <tr>
+            <td scope="row">{{productTitle}}</td>
+            <td>{{productBreakdown.count}}</td>
+            <td>{{productBreakdown.price}}</td>
+          </tr>
+        {{/each-in}}
+        <tr>
+          <td class="total-price-cell" colspan="2">Total Price</td>
+          <td class="total-price">{{this.cart.totalCartPrice}}</td>
+        </tr>
+      </tbody>
+    </table>
   {{/if}}
 </div>
 {{yield}}

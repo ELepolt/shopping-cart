@@ -12,11 +12,11 @@ module('Unit | Model | cart', function(hooks) {
     let product = store.createRecord('product', { title: 'test title', price: 20 });
     model.products = [product];
     assert.equal(model.cartIsEmpty, false, 'Cart is no longer empty');
-    assert.deepEqual(model.displayProductsDictionary, { 'test title': '$20' }, 'displayProductsDictionary functioning as imagined');
+    assert.deepEqual(model.displayProductsDictionary, { 'test title': { price: '$20', count: 1 }}, 'displayProductsDictionary functioning as imagined');
 
     let productTwo = store.createRecord('product', { title: 'test title', price: 20 });
     model.products = [product, productTwo];
-    assert.deepEqual(model.displayProductsDictionary, { "test title": "$40" }, 'displayProductsDictionary still functioning as imagined');
+    assert.deepEqual(model.displayProductsDictionary, { 'test title': { price: '$40', count: 2 }}, 'displayProductsDictionary still functioning as imagined');
     assert.ok(model);
   });
 });

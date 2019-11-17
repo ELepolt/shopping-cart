@@ -27,7 +27,7 @@ export default class Cart extends Model {
       let uniqueProducts = this.products.uniq();
       uniqueProducts.forEach(product => {
         let productCount = this.products.filterBy('id', product.id).length;
-        displayProductsDictionary[product.title] = `$${productCount * product.price}`;
+        displayProductsDictionary[product.title] = { price: `$${productCount * product.price}`, count: productCount };
       });
     }
     return displayProductsDictionary;
@@ -36,7 +36,7 @@ export default class Cart extends Model {
   get totalCartPrice() {
     let totalCartPrice = 0;
     if (!this.cartIsEmpty) {
-      totalCartPrice = this.products.map((x) => { return x.price }).reduce((a, b) => a + b);
+      totalCartPrice = this.products.map((x) => { return parseFloat(x.price) }).reduce((a, b) => a + b);
     }
     return `$${totalCartPrice}`;
   }
