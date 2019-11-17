@@ -22,4 +22,10 @@ export default class extends Component {
 
     // Gross
   }
+  @action removeFromCart(productId) {
+    // Just filter out the product
+    let otherProducts = this.cart.products.filter(p => { return p.id != productId; });
+    // And set the cart to that array;
+    this.cart.products = otherProducts;
+  }
 }

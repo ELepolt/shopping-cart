@@ -13,7 +13,10 @@
       <tbody>
         {{#each-in this.cart.displayProductsDictionary as |productTitle productBreakdown|}}
           <tr>
-            <td scope="row">{{productTitle}}</td>
+            <td scope="row">
+              <FaIcon {{on "click" (fn this.removeFromCart productBreakdown.productId)}} @icon="times-circle" /> 
+              {{productTitle}}
+            </td>
             <td>
               <select id="{{productBreakdown.productId}}-dropdown" {{on "change" (fn this.updateQuantity productBreakdown.productId)}} >
                 {{#each quantityDropDownOptions as |optionValue|}}
