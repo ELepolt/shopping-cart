@@ -27,7 +27,7 @@ export default class Cart extends Model {
       let uniqueProducts = this.products.uniq();
       uniqueProducts.forEach(product => {
         let productCount = this.products.filterBy('id', product.id).length;
-        displayProductsDictionary[product.title] = { price: `$${productCount * product.price}`, count: productCount };
+        displayProductsDictionary[product.title] = { price: `$${productCount * product.price}`, count: productCount, productId: product.id };
       });
     }
     return displayProductsDictionary;

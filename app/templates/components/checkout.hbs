@@ -14,7 +14,14 @@
         {{#each-in this.cart.displayProductsDictionary as |productTitle productBreakdown|}}
           <tr>
             <td scope="row">{{productTitle}}</td>
-            <td>{{productBreakdown.count}}</td>
+            <td>
+              <select id="{{productBreakdown.productId}}-dropdown" {{on "change" (fn this.updateQuantity productBreakdown.productId)}} >
+                {{#each quantityDropDownOptions as |optionValue|}}
+                  <option value={{optionValue}}>{{optionValue}}</option>
+                {{/each}}
+              </select>
+            </td>
+            {{!-- <td>{{productBreakdown.count}}</td> --}}
             <td>{{productBreakdown.price}}</td>
           </tr>
         {{/each-in}}
