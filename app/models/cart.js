@@ -6,6 +6,7 @@ export default class Cart extends Model {
   // Initialized as an empty array when the cart is created
   @tracked products;
 
+  // Odd issue in testing which required me to check products against null
   get cartIsEmpty() {
     let cartIsEmpty = true;
     if (this.products) {
@@ -14,6 +15,12 @@ export default class Cart extends Model {
     return cartIsEmpty;
   }
 
+  /*
+    TODO: Realized a little late that this should probably be it's own model.
+    Something like UserProductSelection which would have a product and quantity,
+    and belong to a cart/user. That would alleviate a bit of this function and
+    allow logged in users to save their products for future purchases
+  */
   get displayProductsDictionary() {
     let displayProductsDictionary = {};
     if (!this.cartIsEmpty) {
